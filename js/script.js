@@ -22,44 +22,22 @@ let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.
 
 console.log('Gracz wpisał: ' + playerInput);
 
-let playerMove = getMoveName(playerInput);
+let argPlayerMove = getMoveName(playerInput);
 
-    printMessage('Twój ruch to: ' + playerMove);
+    printMessage('Twój ruch to: ' + argPlayerMove);
 
 
-if(computerMove == 'kamień' && playerMove == 'papier'){
-    printMessage('Ty wygrywasz!');
-    } 
-else if(computerMove == 'kamień' && playerMove == 'kamień'){
-    printMessage('Remis!');
-    } 
-else if(computerMove == 'kamień' && playerMove == 'nożyce'){
-    printMessage('Przegrywasz!');
-    } 
-else if(computerMove == 'papier' && playerMove == 'papier'){
-    printMessage('Remis!');
-    } 
-else if(computerMove == 'papier' && playerMove == 'kamień'){
-    printMessage('Przegrywasz!');
-    } 
-else if(computerMove == 'papier' && playerMove == 'nożyce'){
-    printMessage('Ty wygrywasz!')
-    }  
-else if(computerMove == 'nożyce' && playerMove == 'papier'){
-    printMessage('Przegrywasz!');
-    } 
-else if(computerMove == 'nożyce' && playerMove == 'kamień'){
-    printMessage('Ty Wygrywasz!');
-    } 
-else if(computerMove == 'nożyce' && playerMove == 'nożyce'){
-    printMessage('Remis!');
+function displayResult(argComputerMove, argPlayerMove){
+    if((argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
+    (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
+    (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')){
+    printMessage('Wygrywasz!')
+    } else if(argComputerMove == argPlayerMove){
+    printMessage('Remis');
+    } else if (argPlayerMove == 'nieznany ruch'){
+    printMessage('podaj liczbę od 1 do 3');
+    } else{
+        printMessage('Nieznany ruch');
     }
-else if(computerMove == 'kamień' && playerMove == 'nieznany ruch'){
-    printMessage('Nieznany Ruch!');
-    } 
-else if(computerMove == 'papier' && playerMove == 'nieznany ruch'){
-    printMessage('Nieznany Ruch!');
-    } 
-else if(computerMove == 'nożyce' && playerMove == 'nieznany ruch'){
-    printMessage('Nieznany Ruch!');
-    }
+
+}
