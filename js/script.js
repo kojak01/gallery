@@ -25,5 +25,19 @@ if(playerInput == 1){
 } else if(playerInput == 3){
   playerMove = 'nożyce'
 }
-
 console.log('Twój ruch to: ' + playerMove);
+
+// Score Game
+
+if((computerMove == 'kamień' && playerMove == 'papier') ||
+(computerMove == 'papier' && playerMove == 'nożyce') ||
+(computerMove == 'nożyce' && playerMove == 'kamień')) {
+  printMessage('Wygrywasz!')
+} else if(computerMove == playerMove) {
+  printMessage('Remis')
+} else if(playerMove == 'nieznany ruch'){
+  printMessage('podaj liczbę od 1 do 3');
+} else {
+  printMessage('Przegrywasz!');
+}
+
