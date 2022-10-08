@@ -41,15 +41,22 @@ console.log('Twój ruch to: ' + playerMove);
 
 // Score Game
 
-if((computerMove == 'kamień' && playerMove == 'papier') ||
-(computerMove == 'papier' && playerMove == 'nożyce') ||
-(computerMove == 'nożyce' && playerMove == 'kamień')) {
+function displayResult(argComputerMove, argPlayerMove){
+  console.log('function move');
+if((argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
+(argComputerMove == 'papier' && argPlayerMovee == 'nożyce') ||
+(argComputerMove == 'nożyce' && argPlayerMove == 'kamień')) {
   console.log('Wygrywasz!')
-} else if(computerMove == playerMove) {
+} else if(argComputerMove == argPlayerMove) {
   console.log('Remis!')
-} else if(playerMove == 'nieznany ruch'){
+} else if(argPlayerMove == 'nieznany ruch'){
   console.log('podaj liczbę od 1 do 3');
 } else {
   console.log('Przegrywasz!');
 }
+}
+
+
+displayResult(computerMove, playerMove);
+
 
