@@ -32,12 +32,12 @@ console.log('Twój ruch to: ' + playerMove);
 if((computerMove == 'kamień' && playerMove == 'papier') ||
 (computerMove == 'papier' && playerMove == 'nożyce') ||
 (computerMove == 'nożyce' && playerMove == 'kamień')) {
-  printMessage('Wygrywasz!')
+  console.log('Wygrywasz!')
 } else if(computerMove == playerMove) {
-  printMessage('Remis')
+  console.log('Remis')
 } else if(playerMove == 'nieznany ruch'){
-  printMessage('podaj liczbę od 1 do 3');
+  console.log('podaj liczbę od 1 do 3');
 } else {
-  printMessage('Przegrywasz!');
+  console.log('Przegrywasz!');
 }
 
