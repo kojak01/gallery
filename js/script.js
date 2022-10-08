@@ -51,13 +51,13 @@ function playGame(playerInput){
   if((argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
   (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
   (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')) {
-    console.log('Wygrywasz!')
+    printMessage('Wygrywasz!')
   } else if(argComputerMove == argPlayerMove) {
-    console.log('Remis!')
+    printMessage('Remis!')
   } else if(argPlayerMove == 'nieznany ruch'){
-    console.log('podaj liczbę od 1 do 3');
+    printMessage('podaj liczbę od 1 do 3');
   } else {
-    console.log('Przegrywasz!');
+    printMessage('Przegrywasz!');
   }
   }
   displayResult(computerMove, playerMove);
