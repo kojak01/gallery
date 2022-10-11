@@ -1,3 +1,4 @@
+{
 function playGame(playerInput){
   clearMessages()
 
@@ -13,12 +14,12 @@ function playGame(playerInput){
 
   // Computer Moves 
 
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
-  let computerMove = getMoveName(randomNumber);
+  const randomNumber = Math.floor(Math.random() * 3 + 1),
+  computerMove = getMoveName(randomNumber);
   console.log('Wylosowana liczba to: ' + randomNumber);
   console.log('Mój ruch to: ' + computerMove);
   console.log('player wpisał ' + playerInput);
-  let playerMove = getMoveName(playerInput);
+  const playerMove = getMoveName(playerInput);
   console.log('Twój ruch to: ' + playerMove);
 
   // Score Game
@@ -49,3 +50,4 @@ document.getElementById('play-paper').addEventListener('click', function(){
 document.getElementById('play-scissors').addEventListener('click', function(){
   playGame(3);
 });
+}
