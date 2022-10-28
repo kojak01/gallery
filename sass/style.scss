@@ -1,0 +1,39 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    font-size: 15px;
+    border: 1px solid red;
+    max-width: 960px;
+    min-width: 300px;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profil-picture img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.main-information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me,
+.languages,
+.experience,
+.education {
+    flex: 100%;
+}
