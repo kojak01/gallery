@@ -8,21 +8,28 @@ let dot3 = document.querySelector('#dot3');
 let slide1 = document.querySelector('#slide1');
 let slide2 = document.querySelector('#slide2');
 let slide3 = document.querySelector('#slide3');
-let showSlide1 = () => {
-    let activeElement = document.querySelector('.active');
-    activeElement.classList.remove('active');
-    slide1.classList.add('active');
+
+let hideActiveSlide = () => {
+  let activeElement = document.querySelector('.active');
+  activeElement.classList.remove('active');
+};
+
+let showSlide = (slideNumber) => {
+    document.querySelector('#slide'+slideNumber).classList.add('active');
 }
+
+let showSlide1 = () => {
+  hideActiveSlide();
+  showSlide(1);
+};
 let showSlide2 = () => {
-    let activeElement = document.querySelector('.active');
-    activeElement.classList.remove('active');
-    slide2.classList.add('active');
+  hideActiveSlide();
+  showSlide(2);
 };
 let showSlide3 = () => {
-    let activeElement = document.querySelector('.active');
-    activeElement.classList.remove('active');
-    slide3.classList.add('active');
-}
+  hideActiveSlide();
+  showSlide(3);
+};
 
 dot1.addEventListener('click', showSlide1);
 dot2.addEventListener('click', showSlide2);
