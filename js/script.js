@@ -7,7 +7,7 @@ const ARROW_RIGHT = document.querySelector('.popup__arrow--right');
 
 let currentImgIndex;
 
-let showNextImg = () => {
+const showNextImg = () => {
   if(currentImgIndex === THUMBNAILS.length - 1) { // we point to the last element of the array
     currentImgIndex = 0;
   } else {
@@ -16,13 +16,17 @@ let showNextImg = () => {
   POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
 };
 
-let showPreviousImg = () => {
+const showPreviousImg = () => {
   if(currentImgIndex === 0) {
     currentImgIndex = THUMBNAILS.length -1;
   } else {
     currentImgIndex--;
   }
   POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+};
+
+const closePopup = () => {
+  POPUP.classList.add('hidden');
 };
 
 THUMBNAILS.forEach((thumbnail, index) => {
@@ -34,9 +38,7 @@ THUMBNAILS.forEach((thumbnail, index) => {
   });
 });
 
-POPUP_CLOSE.addEventListener('click', () => {
-  POPUP.classList.add('hidden');
-});
+ POPUP_CLOSE.addEventListener('click', closePopup);
 
 ARROW_RIGHT.addEventListener('click', showNextImg);
 //   if(currentImgIndex === THUMBNAILS.length - 1) { // we point to the last element of the array
@@ -60,12 +62,12 @@ document.addEventListener('keydown', (e) => { // important (code and keycode)
   if(e.code === "ArrowRight" || e.keyCode === 39) {
     showNextImg();
   }
-  console.log(e);
-});
-
-document.addEventListener('keydown', (e) => { // important (code and keycode)
   if(e.code === "ArrowLeft" || e.keyCode === 37) {
     showPreviousImg();
   }
+  if(e.code === "Escape" || e.keyCode === 27) {
+    closePopup();
+  }
   console.log(e);
 });
+
