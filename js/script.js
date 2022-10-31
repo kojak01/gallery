@@ -26,19 +26,30 @@ const showPreviousImg = () => {
 };
 
 const closePopup = () => {
-  POPUP.classList.add('hidden');
+  POPUP.classList.add('fade-out');
+  setTimeout(() => {
+    POPUP.classList.add('hidden');
+    POPUP.classList.remove('fade-out');
+  }, 300);
 };
 
 THUMBNAILS.forEach((thumbnail, index) => {
-  thumbnail.addEventListener('click', (e) => {
+  const showPopup = (e) => {
     POPUP.classList.remove('hidden');
     POPUP_IMG.src = e.target.src;
     currentImgIndex = index;
     //alert(currentImgIndex);
+  };
+  thumbnail.addEventListener('click', showPopup);
+
+  thumbnail.addEventListener('keydown', (e) => {
+    if(e.code === "Enter" || e.keyCode === 13) {
+      showPopup(e);
+    }
   });
 });
 
- POPUP_CLOSE.addEventListener('click', closePopup);
+POPUP_CLOSE.addEventListener('click', closePopup);
 
 ARROW_RIGHT.addEventListener('click', showNextImg);
 //   if(currentImgIndex === THUMBNAILS.length - 1) { // we point to the last element of the array
