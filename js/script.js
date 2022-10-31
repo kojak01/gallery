@@ -1,8 +1,13 @@
-const thumbNails = document.querySelectorAll('.thumbnail img');
-console.log(thumbNails);
+const THUMBNAILS = document.querySelectorAll('.thumbnail img');
+const POPUP = document.querySelector('.popup');
+const POPUP_CLOSE = document.querySelector('.popup__close')
 
-thumbNails.forEach((thumbnail) =>{
+THUMBNAILS.forEach((thumbnail) =>{
   thumbnail.addEventListener('click', () => {
-    console.log(thumbnail);
+    POPUP.classList.remove('hidden');
   });
+});
+
+POPUP_CLOSE.addEventListener('click', () => {
+  POPUP.classList.add('hidden');
 });

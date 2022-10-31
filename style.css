@@ -75,8 +75,19 @@ h1 {
   display: none;
 }
 
+.popup__close {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 92px;
+  position: fixed;
+  right: 64px;
+  top: 64px;
+
+}
+
 .popup__img {
   max-width: 80%;
   max-height: 80%;
-
 }
