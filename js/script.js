@@ -59,15 +59,22 @@ ARROW_LEFT.addEventListener('click', showPreviousImg);
 // });
 
 document.addEventListener('keydown', (e) => { // important (code and keycode)
-  if(e.code === "ArrowRight" || e.keyCode === 39) {
-    showNextImg();
+  if(!POPUP.classList.contains('hidden')) {// negation of the expression (!POPUP) the sccript works when popup is enabled 
+    if(e.code === "ArrowRight" || e.keyCode === 39) {
+      showNextImg();
+    }
+    if(e.code === "ArrowLeft" || e.keyCode === 37) {
+      showPreviousImg();
+    }
+    if(e.code === "Escape" || e.keyCode === 27) {
+      closePopup();
+    }
   }
-  if(e.code === "ArrowLeft" || e.keyCode === 37) {
-    showPreviousImg();
-  }
-  if(e.code === "Escape" || e.keyCode === 27) {
-    closePopup();
-  }
-  console.log(e);
 });
 
+// POPUP.addEventListener('click', closePopup);
+POPUP.addEventListener('click', (e) => {
+  if(e.target === POPUP) {
+    closePopup();
+  }
+});
