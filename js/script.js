@@ -30,6 +30,9 @@ const closePopup = () => {
   setTimeout(() => {
     POPUP.classList.add('hidden');
     POPUP.classList.remove('fade-out');
+    THUMBNAILS.forEach(element => {
+      element.setAttribute('tabindex', 1);
+    });
   }, 300);
 };
 
@@ -38,6 +41,9 @@ THUMBNAILS.forEach((thumbnail, index) => {
     POPUP.classList.remove('hidden');
     POPUP_IMG.src = e.target.src;
     currentImgIndex = index;
+    THUMBNAILS.forEach(element => {
+      element.setAttribute('tabindex', -1);
+    });
     //alert(currentImgIndex);
   };
   thumbnail.addEventListener('click', showPopup);
