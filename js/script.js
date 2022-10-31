@@ -7,6 +7,24 @@ const ARROW_RIGHT = document.querySelector('.popup__arrow--right');
 
 let currentImgIndex;
 
+let showNextImg = () => {
+  if(currentImgIndex === THUMBNAILS.length - 1) { // we point to the last element of the array
+    currentImgIndex = 0;
+  } else {
+    currentImgIndex = currentImgIndex + 1; // => currentImgIndex = currentImgIndex + 1;
+  }
+  POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+};
+
+let showPreviousImg = () => {
+  if(currentImgIndex === 0) {
+    currentImgIndex = THUMBNAILS.length -1;
+  } else {
+    currentImgIndex--;
+  }
+  POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+};
+
 THUMBNAILS.forEach((thumbnail, index) => {
   thumbnail.addEventListener('click', (e) => {
     POPUP.classList.remove('hidden');
@@ -20,20 +38,34 @@ POPUP_CLOSE.addEventListener('click', () => {
   POPUP.classList.add('hidden');
 });
 
-ARROW_RIGHT.addEventListener('click', () => {
-  if(currentImgIndex === THUMBNAILS.length - 1) {
-    currentImgIndex = 0;
-  } else {
-    currentImgIndex = currentImgIndex + 1; // => currentImgIndex = currentImgIndex + 1;
+ARROW_RIGHT.addEventListener('click', showNextImg);
+//   if(currentImgIndex === THUMBNAILS.length - 1) { // we point to the last element of the array
+//     currentImgIndex = 0;
+//   } else {
+//     currentImgIndex = currentImgIndex + 1; // => currentImgIndex = currentImgIndex + 1;
+//   }
+//   POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+// });
+
+ARROW_LEFT.addEventListener('click', showPreviousImg);
+//   if(currentImgIndex === 0) {
+//     currentImgIndex = THUMBNAILS.length -1;
+//   } else {
+//     currentImgIndex--;
+//   }
+//   POPUP_IMG.src = THUMBNAILS[currentImgIndex].src; // for the new element, we assign the appropriate src
+// });
+
+document.addEventListener('keydown', (e) => { // important (code and keycode)
+  if(e.code === "ArrowRight" || e.keyCode === 39) {
+    showNextImg();
   }
-  POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+  console.log(e);
 });
 
-ARROW_LEFT.addEventListener('click', () => {
-  if(currentImgIndex === 0) {
-    currentImgIndex = THUMBNAILS.length -1;
-  } else {
-    currentImgIndex--;
+document.addEventListener('keydown', (e) => { // important (code and keycode)
+  if(e.code === "ArrowLeft" || e.keyCode === 37) {
+    showPreviousImg();
   }
-  POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+  console.log(e);
 });
